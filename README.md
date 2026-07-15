@@ -29,8 +29,7 @@ A modern, high-performance, and visually stunning corporate website built from s
 ##  Live Demo
 
 You can view the live website here:  
-**[(https://apexmarketingsystemsllc.com/)](https://apexmarketingsystemsllc.com/)** *(Or replace this with your GitHub Pages link!)*
-
+**[(https://apexmarketingsystemsllc.com/)](https://apexmarketingsystemsllc.com/)**
 ---
 
 ##  Project Structure
