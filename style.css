@@ -741,11 +741,12 @@ body {
 
 /* Right Side Scale Card (Exact match to image_6bee05) */
 .why-right-card {
-   background: linear-gradient(to bottom left, 
+   /* background: linear-gradient(to bottom left, 
     rgba(37, 99, 235, 0.35) 0%,
     rgba(37, 99, 235, 0.15) 50%,
     #020612 85%
-) !important;
+) !important; */
+    background: url(https://i.pinimg.com/736x/a4/16/37/a41637c….jpg);
     border: 1px solid rgba(255, 255, 255, 0.04);
     border-radius: 16px;
     min-height: 340px;
