@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Apex Marketing Systems LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/FsRyCyBN/site-logo.png">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <div class="admin-header-logo">
+            <span>Apex</span><span class="logo-blue">Admin</span>
+        </div>
+        <div class="admin-header-actions">
+            <a href="index.html" class="admin-view-site-link" target="_blank">View site ↗</a>
+            <button class="admin-logout-btn" id="adminLogoutBtn">Log out</button>
+        </div>
+    </header>
+
+    <main class="admin-body">
+        <h1 class="admin-page-title">Content Manager</h1>
+        <p class="admin-page-subtitle">Add or remove items shown on your live website. Changes save automatically to this browser.</p>
+
+        <div class="admin-tabs">
+            <button class="admin-tab-btn active" data-tab="orders">Orders</button>
+            <button class="admin-tab-btn" data-tab="messages">Messages</button>
+            <button class="admin-tab-btn" data-tab="services">Services</button>
+            <button class="admin-tab-btn" data-tab="products">Shop Products</button>
+            <button class="admin-tab-btn" data-tab="team">Leadership</button>
+            <button class="admin-tab-btn" data-tab="contact">Contact Info</button>
+        </div>
+
+        <!-- ===== ORDERS TAB ===== -->
+        <div class="admin-tab-panel active" id="tab-orders">
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Incoming Orders</h2>
+                <p style="color:#8792a8; font-size:13px; margin-bottom:18px;">Orders placed at checkout appear here. Approve one to mark it confirmed and open a pre-filled confirmation email to the customer.</p>
+                <div class="admin-list" id="orderList"></div>
+            </div>
+        </div>
+
+        <!-- ===== MESSAGES TAB ===== -->
+        <div class="admin-tab-panel" id="tab-messages">
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Contact Form Messages</h2>
+                <p style="color:#8792a8; font-size:13px; margin-bottom:18px;">Messages people send from the Contact page land here. Reply opens a pre-filled email in Gmail.</p>
+                <div class="admin-list" id="messageList"></div>
+            </div>
+        </div>
+
+        <!-- ===== SERVICES TAB ===== -->
+        <div class="admin-tab-panel" id="tab-services">
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Add a New Service</h2>
+                <form id="serviceForm">
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="serviceTitle">Service Title</label>
+                            <input type="text" id="serviceTitle" placeholder="e.g. Email Marketing" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="serviceIcon">Icon</label>
+                            <select id="serviceIcon">
+                                <option value="sparkles">Sparkles</option>
+                                <option value="rocket">Rocket</option>
+                                <option value="target">Target</option>
+                                <option value="bar-chart-3">Bar Chart</option>
+                                <option value="mail">Mail</option>
+                                <option value="globe">Globe</option>
+                                <option value="shield-check">Shield</option>
+                                <option value="pen-tool">Pen Tool</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="serviceDescription">Description</label>
+                        <textarea id="serviceDescription" rows="3" placeholder="Short description of this service..." required></textarea>
+                    </div>
+                    <button type="submit" class="admin-btn">Add Service</button>
+                </form>
+            </div>
+
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Your Added Services</h2>
+                <div class="admin-list" id="serviceList"></div>
+            </div>
+        </div>
+
+        <!-- ===== SHOP PRODUCTS TAB ===== -->
+        <div class="admin-tab-panel" id="tab-products">
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Add a New Product</h2>
+                <form id="productForm">
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="productTitle">Product Title</label>
+                            <input type="text" id="productTitle" placeholder="e.g. Landing Page Template" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="productCategory">Category Tag</label>
+                            <input type="text" id="productCategory" placeholder="e.g. TEMPLATES" required>
+                        </div>
+                    </div>
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="productPrice">Price ($)</label>
+                            <input type="number" id="productPrice" min="0" step="1" placeholder="199" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="productDescription">Description</label>
+                            <input type="text" id="productDescription" placeholder="Short one-line description" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="admin-btn">Add Product</button>
+                </form>
+            </div>
+
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Your Added Products</h2>
+                <div class="admin-list" id="productList"></div>
+            </div>
+        </div>
+
+        <!-- ===== LEADERSHIP TAB ===== -->
+        <div class="admin-tab-panel" id="tab-team">
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Add a Team Member</h2>
+                <form id="teamForm">
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="teamName">Full Name</label>
+                            <input type="text" id="teamName" placeholder="e.g. Sarah Johnson" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="teamRole">Role / Title</label>
+                            <input type="text" id="teamRole" placeholder="e.g. Creative Director" required>
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="teamDescription">Short Bio</label>
+                        <input type="text" id="teamDescription" placeholder="e.g. Leads brand strategy and design." required>
+                    </div>
+                    <button type="submit" class="admin-btn">Add Team Member</button>
+                </form>
+            </div>
+
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Your Added Team Members</h2>
+                <div class="admin-list" id="teamList"></div>
+            </div>
+        </div>
+
+        <!-- ===== CONTACT INFO TAB ===== -->
+        <div class="admin-tab-panel" id="tab-contact">
+            <div class="admin-panel">
+                <h2 class="admin-panel-title">Update Contact Details</h2>
+                <p style="color:#8792a8; font-size:13px; margin-bottom:18px;">These override the email and phone number shown on the Contact page.</p>
+                <form id="contactInfoForm">
+                    <div class="admin-form-row">
+                        <div class="admin-form-group">
+                            <label for="contactEmail">Email Address</label>
+                            <input type="email" id="contactEmail" placeholder="Admin@apexmarketingsystemsllc.com" required>
+                        </div>
+                        <div class="admin-form-group">
+                            <label for="contactPhone">Phone Number</label>
+                            <input type="text" id="contactPhone" placeholder="+1 (512) 576-2584">
+                        </div>
+                    </div>
+                    <div class="admin-form-group">
+                        <label for="contactAddress">Office Address</label>
+                        <input type="text" id="contactAddress" placeholder="10439 Wellington Parc Dr, Lake Worth, FL 33449, USA">
+                    </div>
+                    <button type="submit" class="admin-btn">Save Contact Info</button>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <div class="admin-toast" id="adminToast">Saved!</div>
+
+    <script src="admin-dashboard.js"></script>
+</body>
+</html>

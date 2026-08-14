@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - Apex Marketing Systems LLC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="https://i.postimg.cc/FsRyCyBN/site-logo.png">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+    <div class="admin-login-wrap">
+        <div class="admin-login-card">
+            <div class="admin-login-logo">
+                <span>Apex</span><span class="logo-blue">Admin</span>
+            </div>
+            <p class="admin-login-subtitle">Sign in to manage your website content</p>
+
+            <form id="adminLoginForm">
+                <div class="admin-form-group">
+                    <label for="adminUsername">Username</label>
+                    <input type="text" id="adminUsername" placeholder="admin" autocomplete="username" required>
+                </div>
+                <div class="admin-form-group">
+                    <label for="adminPassword">Password</label>
+                    <input type="password" id="adminPassword" placeholder="••••••••" autocomplete="current-password" required>
+                </div>
+                <button type="submit" class="admin-btn">Sign In</button>
+                <p class="admin-login-error" id="adminLoginError">Incorrect username or password.</p>
+            </form>
+
+            <p class="admin-login-hint">← <a href="index.html">Back to website</a></p>
+        </div>
+    </div>
+
+    <script src="admin-login.js"></script>
+</body>
+</html>
